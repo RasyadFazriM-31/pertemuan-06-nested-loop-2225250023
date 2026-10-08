@@ -150,7 +150,7 @@ Tidak ada loop atau perhitungan yang berulang tanpa diperlukan. Setiap pasangan 
 
 ## Refleksi
 
-Kesalahan nested loop yang saya analisis adalah salah menaruh inisialisasi akumulator per baris. Jika `total_baris = 0` ditulis sebelum loop luar, nilainya tidak pernah direset. Untuk n = 3, jumlah baris yang tercetak menjadi 6, 18, dan 36 (menumpuk), padahal seharusnya 6, 12, dan 18. Perbaikannya adalah memindahkan `total_baris = 0` ke dalam loop luar, tepat sebelum loop dalam, sehingga setiap baris mulai dari nol. Sebaliknya, `total_semua` memang harus ditaruh sebelum kedua loop karena jumlahnya mencakup seluruh tabel.
+Kesalahan nested loop yang saya analisis itu ada di penempatan inisialisasi akumulator per baris. Kalau `total_baris = 0` ditaruh sebelum loop luar, nilainya tidak akan direset setiap kali masuk ke baris baru. Akibatnya, untuk `n = 3`, jumlah yang tercetak jadi 6, 18, dan 36 karena hasilnya terus menumpuk, padahal seharusnya 6, 12, dan 18. Jadi, perbaikannya adalah memindahkan `total_baris = 0` ke dalam loop luar, tepat sebelum loop dalam, supaya setiap baris dimulai lagi dari nol. Sementara itu, `total_semua` memang harus diletakkan sebelum kedua loop karena nilainya digunakan untuk menghitung total dari seluruh tabel.
 
 ## Sumber dan Bantuan
 
